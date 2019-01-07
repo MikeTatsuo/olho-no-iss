@@ -1,0 +1,7 @@
+{
+  "name": "OlhoNoISS",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
