@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Quem está no espaço agora?</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3>Atualmente tem {{nr_astronauts}} pessoas no espaço</h3>
+
+  <p *ngFor="let astronaut of astronauts">
+    Nome: {{astronaut.name}} <br />
+    Onde: {{astronaut.craft}}
+  </p>
+
+</ion-content>

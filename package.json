@@ -1,9 +1,9 @@
 {
-  "name": "OlhoNoISS",
+  "name": "olho_no_iss",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
-  "private": true,
+  "author": "Mike Tatsuo",
+  "homepage": "https://github.com/MikeTatsuo",
+  "private": false,
   "scripts": {
     "start": "ionic-app-scripts serve",
     "clean": "ionic-app-scripts clean",
