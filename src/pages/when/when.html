@@ -1,29 +1,24 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Quando o ISS irá passar aqui?</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Quando o ISS irá passar aqui?</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-
-  <h3>Minha Localização</h3>
-  <p>
-    Latitude: {{latitude}}
-  </p>
-  <p>
-    Longitude: {{longitude}}
-  </p>
-
-  <h4>Próximas {{nr_passes}} passagens</h4>
-  <p *ngFor="let passagem of passes">
-    Duração: {{passagem.duration}}<br/>
-    Quando: {{passagem.risetime}}
-  </p>
-
-  
-
+    <h3>Minha Localização</h3>
+    <p>
+        Latitude: {{latitude}}
+    </p>
+    <p>
+        Longitude: {{longitude}}
+    </p>
+    <h4>Próximas {{nr_passes}} passagens</h4>
+    <p *ngFor="let passagem of passes">
+        Duração: {{passagem.duration}}<br />
+        Quando: {{passagem.risetime}}
+    </p>
 </ion-content>

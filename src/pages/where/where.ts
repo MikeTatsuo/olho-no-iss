@@ -19,7 +19,7 @@ export class WherePage {
     this.getISS(1000);
   }
 
-  ionViewWillLeave(){
+  ionViewWillLeave() {
     clearInterval(this.interval)
   }
 
@@ -30,8 +30,7 @@ export class WherePage {
           this.latitude = localization.latitude;
           this.longitude = localization.longitude;
         }).catch(erro => {
-          debugger
-          //put alert here
+          // TODO alert for error
         })
     }, sec)
   }

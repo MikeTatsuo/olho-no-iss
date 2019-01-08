@@ -7,9 +7,6 @@ import { WherePage } from '../pages/where/where';
 import { WhenPage } from '../pages/when/when';
 import { WhoPage } from '../pages/who/who';
 
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OpenNotifyProvider } from '../providers/open-notify/open-notify';
@@ -23,9 +20,7 @@ import { IssPeopleProvider } from '../providers/iss-people/iss-people';
     MyApp,
     WherePage,
     WhenPage,
-    WhoPage,
-    ItemDetailsPage,
-    ListPage
+    WhoPage
   ],
   imports: [
     BrowserModule,
@@ -37,9 +32,7 @@ import { IssPeopleProvider } from '../providers/iss-people/iss-people';
     MyApp,
     WherePage,
     WhenPage,
-    WhoPage,
-    ItemDetailsPage,
-    ListPage
+    WhoPage
   ],
   providers: [
     StatusBar,

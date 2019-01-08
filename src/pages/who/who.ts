@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import{IssPeopleProvider} from '../../providers/iss-people/iss-people'
+import { IssPeopleProvider } from '../../providers/iss-people/iss-people'
 
 @Component({
   selector: 'page-who',
@@ -7,20 +7,20 @@ import{IssPeopleProvider} from '../../providers/iss-people/iss-people'
 })
 export class WhoPage {
   astronauts: any
-  nr_astronauts:number
+  nr_astronauts: number
   constructor(
     public issPeople: IssPeopleProvider
   ) {
     this.getAstronauts()
   }
 
-  getAstronauts(){
+  getAstronauts() {
     this.issPeople.getAstros()
-    .then((data:any) => {      
-      this.astronauts = data.people
-      this.nr_astronauts = data.number
-    }).catch(error => {
-debugger
-    })
+      .then((data: any) => {
+        this.astronauts = data.people
+        this.nr_astronauts = data.number
+      }).catch(error => {
+        // TODO alert for error
+      })
   }
 }

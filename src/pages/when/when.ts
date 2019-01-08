@@ -22,12 +22,11 @@ export class WhenPage {
 
   getPass(lat: number, lon: number) {
     this.issPass.get(lat, lon)
-      .then((resp:any) => {
+      .then((resp: any) => {
         this.nr_passes = resp.request.passes
         this.passes = resp.response
       }).catch(error => {
-        debugger
-        // alert
+        // TODO alert for error
       })
   }
 }

@@ -2,7 +2,7 @@
   "name": "olho_no_iss",
   "version": "0.0.1",
   "author": "Mike Tatsuo",
-  "homepage": "https://github.com/MikeTatsuo",
+  "homepage": "https://github.com/MikeTatsuo/Olho-No-ISS",
   "private": false,
   "scripts": {
     "start": "ionic-app-scripts serve",

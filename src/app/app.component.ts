@@ -5,7 +5,6 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 import { WherePage } from '../pages/where/where';
 import { WhenPage } from '../pages/when/when';
 import { WhoPage } from '../pages/who/who';
-//import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,15 +32,12 @@ export class MyApp {
     this.pages = [
       { title: 'Onde está a ISS?', component: WherePage },
       { title: 'Quando o ISS irá passar aqui?', component: WhenPage },
-      { title: 'Quem está no espaço?', component: WhoPage }//,
-      //{ title: 'My First List', component: ListPage }
+      { title: 'Quem está no espaço?', component: WhoPage }
     ];
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
