@@ -7,19 +7,30 @@
     </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
     <ion-card>
         <ion-card-header>
             Minha localização atual
         </ion-card-header>
         <ion-card-content>
-            <p>
-                <b>Latitude:</b> {{latitude}}
-            </p>
-            <p>
-                <b>Longitude:</b> {{longitude}}
-            </p>
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-4>
+                        <b>Latitude:</b>
+                    </ion-col>
+                    <ion-col col-8>
+                        {{latitude}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-4>
+                        <b>Longitude:</b>
+                    </ion-col>
+                    <ion-col col-8>
+                        {{longitude}}
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
         </ion-card-content>
     </ion-card>
     <ion-card>
@@ -27,10 +38,24 @@
             Próximas {{nr_passes}} passagens
         </ion-card-header>
         <ion-card-content>
-            <p *ngFor="let passagem of passes">
-                <b>Quando:</b> {{convertToDate(passagem.risetime * 1000)}}<br />
-                <b>Duração:</b> {{formatDuration(passagem.duration)}}
-            </p>
+            <ion-grid *ngFor="let passagem of passes">
+                <ion-row>
+                    <ion-col col-3>
+                        <b>Quando:</b>
+                    </ion-col>
+                    <ion-col col-9>
+                        {{convertToDate(passagem.risetime * 1000)}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-3>
+                        <b>Duração:</b>
+                    </ion-col>
+                    <ion-col col-9>
+                        {{formatDuration(passagem.duration)}}
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
         </ion-card-content>
     </ion-card>
 </ion-content>

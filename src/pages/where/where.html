@@ -13,12 +13,24 @@
             Posição atual do ISS
         </ion-card-header>
         <ion-card-content>
-            <p>
-                <b>Latitude:</b> {{latitude}}
-            </p>
-            <p>
-                <b>Longitude:</b> {{longitude}}
-            </p>
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-4>
+                        <b>Latitude:</b>
+                    </ion-col>
+                    <ion-col col-8>
+                        {{latitude}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-4>
+                        <b>Longitude:</b>
+                    </ion-col>
+                    <ion-col col-8>
+                        {{longitude}}
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
         </ion-card-content>
     </ion-card>
 </ion-content>
