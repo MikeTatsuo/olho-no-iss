@@ -16,22 +16,27 @@ export class WherePage {
   }
 
   ionViewDidLoad() {
-    this.getISS(1000);
+    this.getISS();
+    this.changeInterval(1000)
   }
 
   ionViewWillLeave() {
     clearInterval(this.interval)
   }
 
-  getISS(sec: number) {
+  getISS() {
+    this.issPosition.get()
+      .then((localization: any) => {
+        this.latitude = localization.latitude;
+        this.longitude = localization.longitude;
+      }).catch(erro => {
+        // TODO alert for error
+      })
+  }
+
+  changeInterval(sec: number) {
     this.interval = setInterval(() => {
-      this.issPosition.get()
-        .then((localization: any) => {
-          this.latitude = localization.latitude;
-          this.longitude = localization.longitude;
-        }).catch(erro => {
-          // TODO alert for error
-        })
+      this.getISS()
     }, sec)
   }
 }

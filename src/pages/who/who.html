@@ -8,9 +8,15 @@
 </ion-header>
 
 <ion-content padding>
-    <h3>Atualmente tem {{nr_astronauts}} pessoas no espaço</h3>
-    <p *ngFor="let astronaut of astronauts">
-        Nome: {{astronaut.name}} <br />
-        Onde: {{astronaut.craft}}
-    </p>
+    <ion-card>
+        <ion-card-header>
+            Atualmente tem {{nr_astronauts}} pessoas no espaço
+        </ion-card-header>
+        <ion-card-content>
+            <p *ngFor="let astronaut of astronauts">
+                <b>Nome:</b> {{astronaut.name}} <br />
+                <b>Onde:</b> {{astronaut.craft}} <br />                
+            </p>
+        </ion-card-content>
+    </ion-card>
 </ion-content>

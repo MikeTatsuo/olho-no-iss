@@ -9,16 +9,28 @@
 
 
 <ion-content padding>
-    <h3>Minha Localização</h3>
-    <p>
-        Latitude: {{latitude}}
-    </p>
-    <p>
-        Longitude: {{longitude}}
-    </p>
-    <h4>Próximas {{nr_passes}} passagens</h4>
-    <p *ngFor="let passagem of passes">
-        Duração: {{passagem.duration}}<br />
-        Quando: {{passagem.risetime}}
-    </p>
+    <ion-card>
+        <ion-card-header>
+            Minha localização atual
+        </ion-card-header>
+        <ion-card-content>
+            <p>
+                <b>Latitude:</b> {{latitude}}
+            </p>
+            <p>
+                <b>Longitude:</b> {{longitude}}
+            </p>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+            Próximas {{nr_passes}} passagens
+        </ion-card-header>
+        <ion-card-content>
+            <p *ngFor="let passagem of passes">
+                <b>Quando:</b> {{convertToDate(passagem.risetime * 1000)}}<br />
+                <b>Duração:</b> {{formatDuration(passagem.duration)}}
+            </p>
+        </ion-card-content>
+    </ion-card>
 </ion-content>

@@ -8,11 +8,17 @@
 </ion-header>
 
 <ion-content padding>
-    <h3>Posição do ISS</h3>
-    <p>
-        Latitude: {{latitude}}
-    </p>
-    <p>
-        Longitude: {{longitude}}
-    </p>
+    <ion-card>
+        <ion-card-header>
+            Posição atual do ISS
+        </ion-card-header>
+        <ion-card-content>
+            <p>
+                <b>Latitude:</b> {{latitude}}
+            </p>
+            <p>
+                <b>Longitude:</b> {{longitude}}
+            </p>
+        </ion-card-content>
+    </ion-card>
 </ion-content>

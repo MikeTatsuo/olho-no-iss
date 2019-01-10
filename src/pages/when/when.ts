@@ -29,4 +29,16 @@ export class WhenPage {
         // TODO alert for error
       })
   }
+
+  convertToDate(timestamp){
+    let date = new Date(timestamp).toString()
+    return date
+  }
+
+  formatDuration(duration){
+    let seconds = (duration % 60)
+    let minutes = Math.floor(duration / 60)
+    let formated = minutes + " min " + seconds + " sec"
+    return formated
+  }
 }
