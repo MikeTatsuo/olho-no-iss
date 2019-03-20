@@ -1,47 +1,38 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { RouteReuseStrategy } from '@angular/router';
+import { HttpClientModule } from "@angular/common/http";
 
-import { WherePage } from '../pages/where/where';
-import { WhenPage } from '../pages/when/when';
-import { WhoPage } from '../pages/who/who';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { OpenNotifyProvider } from '../providers/open-notify/open-notify';
-import { HttpClientModule } from '@angular/common/http';
-import { IssPositionProvider } from '../providers/iss-position/iss-position';
-import { IssPassProvider } from '../providers/iss-pass/iss-pass';
-import { IssPeopleProvider } from '../providers/iss-people/iss-people';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { OpenNotifyService } from "./services/open-notify.service";
+import { IssPassService } from "./services/iss-pass.service";
+import { IssPeopleService } from "./services/iss-people.service";
+import { IssPositionService } from "./services/iss-position.service";
 
 @NgModule({
-  declarations: [
-    MyApp,
-    WherePage,
-    WhenPage,
-    WhoPage
-  ],
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(),
+    AppRoutingModule,
     HttpClientModule
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    WherePage,
-    WhenPage,
-    WhoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    OpenNotifyProvider,
-    IssPeopleProvider,
-    IssPassProvider,
-    IssPositionProvider
-  ]
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    OpenNotifyService,
+    IssPassService,
+    IssPeopleService,
+    IssPositionService
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

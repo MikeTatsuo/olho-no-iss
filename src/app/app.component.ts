@@ -1,39 +1,26 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { Platform, MenuController, Nav } from 'ionic-angular';
-
-import { WherePage } from '../pages/where/where';
-import { WhenPage } from '../pages/when/when';
-import { WhoPage } from '../pages/who/who';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { Platform } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
-  templateUrl: 'app.html'
+  selector: 'app-root',
+  templateUrl: 'app.component.html'
 })
-export class MyApp {
-  @ViewChild(Nav) nav: Nav;
-
-  // make WhereIsPage the root (or first) page
-  rootPage = WherePage;
-  pages: Array<{ title: string, component: any }>;
+export class AppComponent {
+  public appPages = [
+    { title: 'Onde está a ISS?', url: '/where', icon: 'where' },
+    { title: 'Quando o ISS irá passar aqui?', url: '/when', icon: 'when' },
+    { title: 'Quem está no espaço?', url: '/who', icon: 'who' }
+  ];
 
   constructor(
-    public platform: Platform,
-    public menu: MenuController,
-    public statusBar: StatusBar,
-    public splashScreen: SplashScreen
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar
   ) {
     this.initializeApp();
-
-    // set our app's pages
-    this.pages = [
-      { title: 'Onde está a ISS?', component: WherePage },
-      { title: 'Quando o ISS irá passar aqui?', component: WhenPage },
-      { title: 'Quem está no espaço?', component: WhoPage }
-    ];
   }
 
   initializeApp() {
@@ -41,12 +28,5 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-  }
-
-  openPage(page) {
-    // close the menu when clicking a link from the menu
-    this.menu.close();
-    // navigate to the new page if it is not the current page
-    this.nav.setRoot(page.component);
   }
 }

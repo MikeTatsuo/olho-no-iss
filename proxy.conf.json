@@ -1,0 +1,11 @@
+{
+    "/openNotify": {
+        "target": "http://api.open-notify.org",
+        "changeOrigin": true,
+        "secure": false,
+        "pathRewrite": {
+            "^/openNotify": ""
+          },
+        "logLevel": "debug"
+    }
+}
