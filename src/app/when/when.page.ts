@@ -18,18 +18,27 @@ export class WhenPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCurrentLocation();
+    this.getDeviceLocation();
   }
 
-  getCurrentLocation() {
-    this.geolocation.getCurrentPosition().then((resp: any) => {
+  getDeviceLocation() {
+    this.geolocation.getCurrentPosition({ enableHighAccuracy: true }).then((resp: any) => {
       this.latitude = resp.coords.latitude;
       this.longitude = resp.coords.longitude;
       this.getPass(this.latitude, this.longitude);
-    })
-      .catch((err: any) => {
-        console.error(err)
+      let watch = this.geolocation.watchPosition({ enableHighAccuracy: true })
+      watch.subscribe((data: any) => {
+        if (this.latitude !== data.coords.latitude && this.longitude !== data.coords.longitude) {
+          this.latitude = data.coords.latitude;
+          this.longitude = data.coords.longitude;
+          this.getPass(this.latitude, this.longitude);
+        }
+      }, (erro: any) => {
+        console.error(erro)
       })
+    }).catch((erro: any) => {
+      console.error(erro)
+    })
   }
 
   getPass(lat: number, lon: number) {
