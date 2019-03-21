@@ -14,7 +14,7 @@ export class IssPositionService {
     return new Promise((resolve, reject) => {
       this.openNotify.get(this.endpoint).subscribe((resp: any) => {
         resolve(resp.iss_position)
-      }, error => {
+      }, (error: any) => {
         reject(error)
       })
     })

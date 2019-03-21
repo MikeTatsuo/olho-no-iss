@@ -15,6 +15,8 @@ import { IssPassService } from "./services/iss-pass.service";
 import { IssPeopleService } from "./services/iss-people.service";
 import { IssPositionService } from "./services/iss-position.service";
 
+import { Geolocation } from "@ionic-native/geolocation/ngx"
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -31,7 +33,8 @@ import { IssPositionService } from "./services/iss-position.service";
     OpenNotifyService,
     IssPassService,
     IssPeopleService,
-    IssPositionService
+    IssPositionService,
+    Geolocation
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IssPassService } from '../services/iss-pass.service';
-//import  {Geolocation } from "@ionic-native/geolocation/ngx";
+import { Geolocation } from "@ionic-native/geolocation/ngx";
 
 @Component({
   selector: 'app-when',
@@ -8,37 +8,37 @@ import { IssPassService } from '../services/iss-pass.service';
   styleUrls: ['./when.page.scss'],
 })
 export class WhenPage implements OnInit {
-  public latitude: number = -23.5504428;
-  public longitude: number = -46.6339418;
+  public latitude: number;
+  public longitude: number;
   public passes: any;
   public nr_passes: number
   constructor(
     private issPass: IssPassService,
-    //public geolocation: Geolocation
+    private geolocation: Geolocation
   ) { }
 
   ngOnInit() {
-    this.getPass(this.latitude, this.longitude)
+    this.getCurrentLocation();
   }
 
-  /* getCurrentLocation() {
-    this.geolocation.getCurrentPosition().then(function (resp) {
-      console.log(resp)
-      debugger
+  getCurrentLocation() {
+    this.geolocation.getCurrentPosition().then((resp: any) => {
+      this.latitude = resp.coords.latitude;
+      this.longitude = resp.coords.longitude;
+      this.getPass(this.latitude, this.longitude);
     })
-      .catch((error:any) => {
-        console.error(error)
-        debugger
+      .catch((err: any) => {
+        console.error(err)
       })
-  } */
+  }
 
   getPass(lat: number, lon: number) {
     this.issPass.get(lat, lon)
       .then((resp: any) => {
         this.nr_passes = resp.request.passes
         this.passes = resp.response
-      }).catch(error => {
-        // TODO alert for error
+      }).catch((erro: any) => {
+        console.error(erro)
       })
   }
 

@@ -17,7 +17,7 @@ export class WherePage implements OnInit {
 
   ngOnInit() {
     this.getISS();
-    this.changeInterval(1000)
+    this.changeInterval(10000)
   }
 
   ionViewWillLeave() {
@@ -29,8 +29,8 @@ export class WherePage implements OnInit {
       .then((localization: any) => {
         this.latitude = localization.latitude;
         this.longitude = localization.longitude;
-      }).catch(erro => {
-        // TODO alert for error
+      }).catch((erro: any) => {
+        console.error(erro)
       })
   }
 

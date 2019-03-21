@@ -15,7 +15,7 @@ export class IssPassService {
       this.openNotify.get(`${this.endpoint}?lat=${latitude}&lon=${longitude}`)
         .subscribe((resp: any) => {
           resolve(resp)
-        }, error => {
+        }, (error: any) => {
           reject(error)
         })
     })

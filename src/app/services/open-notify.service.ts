@@ -11,7 +11,7 @@ export class OpenNotifyService {
     public http: HttpClient
   ) { }
 
-  get(params) {
+  get(params: any) {
     return this.http.get(this.api + params)
   }
 }

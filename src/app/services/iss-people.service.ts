@@ -13,9 +13,9 @@ export class IssPeopleService {
   getAstros() {
     return new Promise((resolve, reject) => {
       this.openNotify.get(this.endpoint)
-        .subscribe(data => {
+        .subscribe((data: any) => {
           resolve(data)
-        }, error => {
+        }, (error: any) => {
           reject(error)
         })
     })

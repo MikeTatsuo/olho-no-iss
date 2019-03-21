@@ -23,8 +23,8 @@ export class WhoPage implements OnInit {
       .then((data: any) => {
         this.astronauts = data.people
         this.nr_astronauts = data.number
-      }).catch(error => {
-        // TODO alert for error
+      }).catch((erro: any) => {
+        console.error(erro)
       })
   }
 }
